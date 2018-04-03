@@ -1,9 +1,15 @@
-#Contributors and Maintainers
+# Contributors and Maintainers
 
 ## CyVerse Maintainer: 
 
-**Name:**
-**Email:**
+**Name:** Blake Joyce, science support
+
+**Email:** blake3@cyverse.org
+
+**Name:** Phil Daly, software support
+
+**Email:** pndaly@cyverse.org
+
 
 ## We would like to thank the following contributors
 
