@@ -19,7 +19,7 @@
 | Dmitry Fedorov |                  | UCSB        |       |
 | Christian Lang |                  | UCSB        |       |
 
-Bisque is developed by the Center for Bio-Image Informatics and is supported by the following awards:
+Bisque is developed by the Center for Bio-Image Informatics, University of California at Santa Barbara, and is supported by the following awards:
 
 	NSF Information Technology Research (ITR) award 0331697
 
