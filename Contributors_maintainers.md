@@ -6,8 +6,7 @@
 
 **Name:** Phil Daly, software support, **Email:** pndaly@cyverse.org
 
-
-## We would like to thank the following contributor(s):
+## BisQue Maintainer(s) and Alumni: 
 
 | Name              | Contact Info     | Institution | Notes                          |
 |-------------------|------------------|-------------|--------------------------------|
