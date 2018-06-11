@@ -3,14 +3,14 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
-GUIDE NAME
-==========
+
+Adding a Python Dockerized Module to BisQue
+===========================================
 
 Goal
 ----
 
-.. #### Comment: If the platform has an ICON place it here
-.. #### Comment: Sort description of goal
+The objective of this guide is to allow scientists to incorporate a Python-based module into |Bisque_Logo|_ and develop a Dockerfile for condor deployment.
 
 ----
 
@@ -31,6 +31,7 @@ Goal
 Prerequisites
 -------------
 
+BisQue v0.5.10 or later
 
 Downloads, access, and services
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -63,6 +64,9 @@ Downloads, access, and services
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
+|Bisque_Logo|_
+`Bio-Image Semantic Query User Environment <http://bisque.cyverse.org>`_
+
 .. |CyVerse logo| image:: ./img/cyverse_rgb.png
     :width: 500
     :height: 100
@@ -70,4 +74,8 @@ Downloads, access, and services
 .. |Home_Icon| image:: ./img/homeicon.png
     :width: 25
     :height: 25
+.. |Bisque_Logo| image:: ./img/bisque_logo_2_0.png
+    :width: 50
+    :height: 20
 .. _Home_Icon: http://learning.cyverse.org/
+.. _Bisque_Logo: http://bisque.cyverse.org/
