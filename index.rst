@@ -3,6 +3,8 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
+.. _index.rst:
+
 Adding a Python Dockerized Module to BisQue
 ===========================================
 
@@ -48,6 +50,7 @@ In order to complete this tutorial you *might* need access to the following serv
       - v0.5.10 or later
       - https://bitbucket.org/CBIucsb/bisque
 
+|
 
 ----
 

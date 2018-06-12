@@ -3,13 +3,15 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
+.. _step6.rst:
+
 Run The Module
 --------------
 
 **The module should now work within the running BisQue docker container!**
 
 If you are running on a Mac, localhost does not appear to work correctly. Instead, you need the hostname of your
-machine.
+machine. In the remainder of this section, we will use the author's local hostname (but you must use yours!):
 
 .. code-block:: bash
   :emphasize-lines: 1
@@ -32,6 +34,8 @@ Execute the following steps:
 - Now you can, run the module by clicking on Analyze from the main (drop down) menu and selecting `PlanteomeDeepSegment` and folow the on-screen instructions. The input screen, before clicking on 'RUN' should look like: |Bisque_ZinniaInputs|_
 
 - For example, selecting the Zinna (flower) image, the module returns the following result: |Bisque_ZinniaOutputs|_
+
+|
 
 ----
 

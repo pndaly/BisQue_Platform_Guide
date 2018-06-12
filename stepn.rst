@@ -3,6 +3,8 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
+.. _stepn.rst:
+
 Summary
 -------
 
@@ -18,11 +20,14 @@ In short, what we have done is:
 6. Registered the module;
 7. Loaded some data files;
 8. Tested the module functionality;
-9. Edited the code and re-tested as required.
+9. Edited the code and re-tested as required. Note that if the Python code is modified, there is no need to re-register the module. New code will require a re-load, however.
 
 TO DO:
  - Dockerfile
  - Import into BisQue testing stack
+ - Import into BisQue production stack
+
+|
 
 More help and additional information
 `````````````````````````````````````

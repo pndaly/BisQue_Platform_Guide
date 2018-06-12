@@ -3,6 +3,8 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
+.. _step5.rst:
+
 Update The Dependencies In The BisQue Docker Image
 --------------------------------------------------
 
@@ -82,6 +84,8 @@ Now, we can update the system for the specific requirements of the PlanteomeDeep
   pip install -r requirements.txt
 
 This, too, may take some time to run. At the present time, any errors should be ignored.
+
+|
 
 ----
 

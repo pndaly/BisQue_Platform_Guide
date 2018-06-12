@@ -3,6 +3,8 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
+.. _step3.rst:
+
 Add Local Directories To The BisQue Docker Image
 ------------------------------------------------
 
@@ -33,6 +35,8 @@ Add Local Directories To The BisQue Docker Image
   :emphasize-lines: 1
 
   stop_containers
+
+|
 
 ----
 

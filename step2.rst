@@ -3,6 +3,8 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
+.. _step2.rst:
+
 Get And Run The BisQue Docker Image
 -----------------------------------
 
@@ -21,6 +23,8 @@ Get And Run The BisQue Docker Image
   :emphasize-lines: 1
 
   stop_containers
+
+|
 
 ----
 

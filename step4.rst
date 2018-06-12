@@ -3,6 +3,8 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
+.. _step4.rst:
+
 Clone The GitHub Repository
 ---------------------------
 
@@ -15,6 +17,8 @@ So, clone the GitHub repository:**
   cd ~/bisque-docker/container-modules
   git clone https://github.com/DimTrigkakis/PlanteomeDeepSegment_0.3.git
   mv PlanteomeDeepSegment_0.3 PlanteomeDeepSegment
+
+|
 
 ----
 
