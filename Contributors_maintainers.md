@@ -2,18 +2,18 @@
 
 ## CyVerse Maintainer(s): 
 
-**Name:** Blake Joyce, science support, **Email:** blake3@cyverse.org
+Blake Joyce, science support (blake3@cyverse.org)
 
-**Name:** Phil Daly, software support, **Email:** pndaly@cyverse.org
+Phil Daly, software support (pndaly@cyverse.org)
 
 ## BisQue Maintainer(s) and Alumni: 
 
 | Name              | Contact Info     | Institution | Notes                          |
 |-------------------|------------------|-------------|--------------------------------|
-| Kris Kvelikval    | kris@cs.ucsb.edu | UCSB        |                                |
-| Dmitry Fedorov    |                  | UCSB        |                                |
-| Christian Lang    |                  | UCSB        |                                |
-| John Delaney      |                  |             | Volume renderer                |
+| Kris Kvelikval    | kris@cs.ucsb.edu | UCSB        | *Chef de Cuisine*              |
+| Dmitry Fedorov    |                  | UCSB        | *Sous-Chef de Cuisine*         |
+| Christian Lang    |                  | UCSB        | *Chef de Partie*               |
+| John Delaney      |                  |             | *Saucier*, Volume renderer     |
 | Christopher Wheat |                  |             | Feature server, Botanicam      |
 | Utkarsh Gaur      |                  |             | UI, export and modules         |
 | Gautam Korlam     |                  |             | AWS and Rightscale integration |
