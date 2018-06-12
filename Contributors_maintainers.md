@@ -1,4 +1,13 @@
+![picture](img/bisque/Bisque-Logo.png)
+
+Bio-Image Semantic Query User Environment
+=========================================
+
+|
+
 # Contributors and Maintainers
+
+|
 
 ## CyVerse Maintainer(s): 
 
@@ -10,18 +19,18 @@ Phil Daly, software support (pndaly@cyverse.org)
 
 ## BisQue Maintainer(s) and Alumni: 
 
-| Name              | Contact Info     | Institution | Notes                          |
-|-------------------|------------------|-------------|--------------------------------|
-| Kris Kvelikval    | kris@cs.ucsb.edu | UCSB        | *Chef de Cuisine*              |
-| Dmitry Fedorov    |                  | UCSB        | *Sous-Chef de Cuisine*         |
-| Christian Lang    |                  | UCSB        | *Chef de Partie*               |
-| John Delaney      |                  |             | *Saucier*, Volume renderer     |
-| Christopher Wheat |                  |             | Feature server, Botanicam      |
-| Utkarsh Gaur      |                  |             | UI, export and modules         |
-| Gautam Korlam     |                  |             | AWS and Rightscale integration |
-| Todd Bryan        |                  |             | AWS and Rightscale integration |
-| Boguslaw Obara    |                  |             | UI and modules                 |
-| John O'Donovan    |                  |             | UI                             |
+| Name              | Institution | Role(s)                        |
+|-------------------|-------------|--------------------------------|
+| Kris Kvelikval    | UCSB        | *Chef de Cuisine*              |
+| Dmitry Fedorov    | UCSB        | *Sous-Chef de Cuisine*         |
+| Christian Lang    | UCSB        | *Chef de Partie*               |
+| John Delaney      |             | *Saucier*, Volume renderer     |
+| Christopher Wheat |             | Feature server, Botanicam      |
+| Utkarsh Gaur      |             | UI, export and modules         |
+| Gautam Korlam     |             | AWS and Rightscale integration |
+| Todd Bryan        |             | AWS and Rightscale integration |
+| Boguslaw Obara    |             | UI and modules                 |
+| John O'Donovan    |             | UI                             |
 
 |
 
