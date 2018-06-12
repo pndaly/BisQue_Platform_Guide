@@ -21,7 +21,7 @@ Phil Daly, software support (pndaly@cyverse.org)
 
 | Name              | Institution | Role(s)                        |
 |-------------------|-------------|--------------------------------|
-| Kris Kvelikval    | UCSB        | *Chef de Cuisine*              |
+| Kris Kvilekval    | UCSB        | *Chef de Cuisine*              |
 | Dmitry Fedorov    | UCSB        | *Sous-Chef de Cuisine*         |
 | Christian Lang    | UCSB        | *Chef de Partie*               |
 | John Delaney      |             | *Saucier*, Volume renderer     |
