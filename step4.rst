@@ -3,24 +3,18 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
-Get And Run The BisQue Docker Image
------------------------------------
+Clone The GitHub Repository
+---------------------------
 
-**First, get the latest dockerized version of BisQue and make sure it runs locally:**
-
-.. code-block:: bash
-  :emphasize-lines: 1
-
-  docker run -p 9898:8080 cbiucsb/bisque05:stable
-
-- point your browser to http://localhost:9898/
-- login with `username /password` = `admin / admin`
-- when done, stop the container (from a different terminal) with:
+**We will use the PlanteomeDeepSegment code base as an example for the rest of this guide.
+So, clone the GitHub repository:**
 
 .. code-block:: bash
-  :emphasize-lines: 1
+  :emphasize-lines: 1-3
 
-  stop_containers
+  cd ~/bisque-docker/container-modules
+  git clone https://github.com/DimTrigkakis/PlanteomeDeepSegment_0.3.git
+  mv PlanteomeDeepSegment_0.3 PlanteomeDeepSegment
 
 ----
 

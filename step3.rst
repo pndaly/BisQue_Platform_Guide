@@ -3,15 +3,27 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
-Get And Run The BisQue Docker Image
------------------------------------
+Add Local Directories To The BisQue Docker Image
+------------------------------------------------
 
-**First, get the latest dockerized version of BisQue and make sure it runs locally:**
+**Now, create some directories where you can develop code and store images:**
 
 .. code-block:: bash
-  :emphasize-lines: 1
+  :emphasize-lines: 1-3
 
-  docker run -p 9898:8080 cbiucsb/bisque05:stable
+  mkdir ~/bisque-docker
+  mkdir ~/bisque-docker/container-data
+  mkdir ~/bisque-docker/container-modules
+
+**Attach these directories to the docker container:**
+
+.. code-block:: bash
+  :emphasize-lines: 1-4
+
+  docker run -p 9898:8080 \
+  -v ~/bisque-docker/container-modules:/source/modules \
+  -v ~/bisque-docker/container-data:/source/data \
+  cbiucsb/bisque05:stable
 
 - point your browser to http://localhost:9898/
 - login with `username /password` = `admin / admin`

@@ -3,60 +3,57 @@
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
-
 Adding a Python Dockerized Module to BisQue
 ===========================================
 
 Goal
 ----
 
-The objective of this guide is to allow scientists to incorporate a Python-based module into |Bisque_Logo|_ and develop a Dockerfile for condor deployment.
+The objective of this guide is to allow scientists to incorporate a Python-based module into *BisQue* and develop a Dockerfile for condor deployment.
 
 ----
 
 .. toctree::
-	:maxdepth: 2
+    :maxdepth: 2
+    
+    Tutorial home <self>
+    Some Useful Utilities For Working With Docker <step1.rst>
+    Get And Run The BisQue Docker Image <step2.rst>
+    Add Local Directories To The BisQue Docker Image <step3.rst>
+    Clone The GitHub Repository <step4.rst>
+    Update The Dependencies In The BisQue Docker Image <step5.rst>
+    Run The Module <step6.rst>
+    Summary <stepn.rst>
 
-	Tutorial home <self>
-	First Step <step1.rst>
-	Last Step <step2.rst>
+----
 
-..
-	#### Comment:This tutorial can have multiple pages. The table of contents assumes
-	you have an additional page called 'First Step' with content located in 'step1.rst'.
-	Copy step1.rst. step2.rst has slightly different formatting to end the document.
-	Edit these titles and filenames as needed ####
+Downloads, Access and Services
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-Prerequisites
--------------
-
-BisQue v0.5.10 or later
-
-Downloads, access, and services
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*In order to complete this tutorial you will need access to the following services/software*
-
-..
-	#### comment: delete any row not needed in this table ####
+In order to complete this tutorial you *might* need access to the following services/software:
 
 .. list-table::
     :header-rows: 1
 
-    * - Prerequisite
+    * - Pre-Requisite
       - Preparation/Notes
       - Link/Download
     * - CyVerse account
-      - You will need a CyVerse account to complete this exercise
-      - `Register <https://user.cyverse.org/>`_
+      - You may need a CyVerse account to complete this exercise
+      - `Register for CyVerse Here <https://user.cyverse.org/>`_
+    * - BisQue account
+      - You may need a BisQue account to complete this exercise
+      - `Register for BisQue Here <https://bisque.cyverse.org/>`_
+    * - BisQue code base
+      - v0.5.10 or later
+      - https://bitbucket.org/CBIucsb/bisque
 
 
 ----
 
-**Fix or improve this documentation**
+**Fix or improve this documentation:**
 
-- On Github: `Repo link <FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_FIX_>`_
+- On Github: https://github.com/pndaly/BisQue_Platform_Guide.git
 - Send feedback: `Tutorials@CyVerse.org <Tutorials@CyVerse.org>`_
 
 ----
@@ -64,18 +61,21 @@ Downloads, access, and services
 |Home_Icon|_
 `Learning Center Home <http://learning.cyverse.org/>`_
 
-|Bisque_Logo|_
+|Bisque_Icon|_
 `Bio-Image Semantic Query User Environment <http://bisque.cyverse.org>`_
 
 .. |CyVerse logo| image:: ./img/cyverse_rgb.png
     :width: 500
     :height: 100
-.. _CyVerse logo: http://learning.cyverse.org/
 .. |Home_Icon| image:: ./img/homeicon.png
     :width: 25
     :height: 25
-.. |Bisque_Logo| image:: ./img/bisque_logo_2_0.png
+.. |Bisque_Icon| image:: ./img/bisque/Bisque-Icon.png
+    :width: 25
+    :height: 25
+.. |Bisque_Logo| image:: ./img/bisque/Bisque-Logo.png
     :width: 50
     :height: 20
+.. _CyVerse logo: http://learning.cyverse.org/
 .. _Home_Icon: http://learning.cyverse.org/
-.. _Bisque_Logo: http://bisque.cyverse.org/
+.. _Bisque_Icon: http://bisque.cyverse.org/
