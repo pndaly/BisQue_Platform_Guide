@@ -6,6 +6,8 @@ Blake Joyce, science support (blake3@cyverse.org)
 
 Phil Daly, software support (pndaly@cyverse.org)
 
+|
+
 ## BisQue Maintainer(s) and Alumni: 
 
 | Name              | Contact Info     | Institution | Notes                          |
@@ -21,6 +23,8 @@ Phil Daly, software support (pndaly@cyverse.org)
 | Boguslaw Obara    |                  |             | UI and modules                 |
 | John O'Donovan    |                  |             | UI                             |
 
+|
+
 **BisQue** is developed by the *Center for Bio-Image Informatics*, University of California at Santa Barbara, and is supported by the following award(s):
 
 	NSF Information Technology Research (ITR) award 0331697
@@ -34,6 +38,7 @@ Phil Daly, software support (pndaly@cyverse.org)
 Any opinions, findings and conclusions or recomendations expressed in this material are those of the author(s) 
 and do not necessarily reflect the views of the National Science Foundation (NSF).
 
+|
 
 # BisQue License
 
