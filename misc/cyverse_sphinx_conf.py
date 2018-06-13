@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import sys
+# import sys
 import os
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
@@ -71,5 +71,5 @@ def setup(app):
     )
     app.add_transform(AutoStructify)
     app.add_stylesheet('cyverse.css')
-    #uncomment to enable table sorting app.add_javascript('jquery.tablesorter.min.js')
+    # uncomment to enable table sorting app.add_javascript('jquery.tablesorter.min.js')
     app.add_javascript('cyverse.js')
