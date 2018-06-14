@@ -32,8 +32,8 @@ they are executed at runtime.**
   function remove_containers () {
     _rc=$(docker ps -aq -f "status=exited")
     if [ ! -z "${_rc}" ]; then
-      echo "docker rm --force ${_rc}"
-      docker rm --force ${_rc}
+      echo "docker container rm --force ${_rc}"
+      docker container rm --force ${_rc}
     else
       echo "No containers to remove"
     fi
@@ -44,11 +44,11 @@ they are executed at runtime.**
 .. code-block:: bash
   :emphasize-lines: 1, 2, 4, 5, 7-15, 17-25, 27-30
 
-  alias list_images='docker images ls -a'
-  alias list_image_ids='docker images ls -aq'
+  alias list_images='docker image ls -a'
+  alias list_image_ids='docker image ls -aq'
 
-  alias list_all_images='docker images ls -a -f "dangling=true"'
-  alias list_all_image_ids='docker images ls -aq -f "dangling=true"'
+  alias list_all_images='docker image ls -a -f "dangling=true"'
+  alias list_all_image_ids='docker image ls -aq -f "dangling=true"'
 
   function remove_images () {
     _ri=$(docker images ls -aq)

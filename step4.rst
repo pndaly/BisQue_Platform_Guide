@@ -14,9 +14,9 @@ So, clone the GitHub repository:**
 .. code-block:: bash
   :emphasize-lines: 1-3
 
-  cd ~/bisque-docker/container-modules
-  git clone https://github.com/DimTrigkakis/PlanteomeDeepSegment_0.3.git
-  mv PlanteomeDeepSegment_0.3 PlanteomeDeepSegment
+  % cd ~/bisque-docker/container-modules
+  % git clone https://github.com/DimTrigkakis/PlanteomeDeepSegment_0.3.git
+  % mv PlanteomeDeepSegment_0.3 PlanteomeDeepSegment
 
 |
 

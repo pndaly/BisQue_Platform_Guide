@@ -13,16 +13,17 @@ Get And Run The BisQue Docker Image
 .. code-block:: bash
   :emphasize-lines: 1
 
-  docker run -p 9898:8080 cbiucsb/bisque05:stable
+  % docker run -p 9898:8080 cbiucsb/bisque05:stable
 
 - point your browser to http://localhost:9898/
 - login with `username /password` = `admin / admin`
 - when done, stop the container (from a different terminal) with:
 
 .. code-block:: bash
-  :emphasize-lines: 1
+  :emphasize-lines: 1, 2
 
-  stop_containers
+  % stop_containers
+  % remove_containers
 
 |
 

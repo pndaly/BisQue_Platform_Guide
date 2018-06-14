@@ -16,7 +16,7 @@ Run the image, with the local directories and the GitHub repository attached:
 .. code-block:: bash
   :emphasize-lines: 1-4
 
-  docker run -p 9898:8080 \
+  % docker run -p 9898:8080 \
   -v ~/bisque-docker/container-modules:/source/modules \
   -v ~/bisque-docker/container-data:/source/data \
   cbiucsb/bisque05:stable
@@ -28,7 +28,7 @@ name of the running container which can be found like so:
   :emphasize-lines: 2
 
   # get the container ID
-  list_containers | grep bisque05 | cut -d' ' -f1
+  % list_containers | grep bisque05 | cut -d' ' -f1
   d5eb3d8e117f
 
 or:
@@ -37,7 +37,7 @@ or:
   :emphasize-lines: 2
 
   # get the container name
-  list_containers | grep bisque05 | rev | cut -d' ' -f1
+  % list_containers | grep bisque05 | rev | cut -d' ' -f1
   trusting_lovelace
 
 In the above example, we see that the ID is `d5eb3d8e117f` and the name is `trusting_lovelace`. Connect to this (in this
@@ -46,7 +46,7 @@ example using the name):
 .. code-block:: bash
   :emphasize-lines: 1
 
-  docker exec -it trusting_lovelace bash
+  % docker exec -it trusting_lovelace bash
   root@d5eb3d8e117f:/source#
 
 Once *inside* the container (identified by the new prompt `root@d5eb3d8e117f:/source#`), we need to update the
@@ -56,11 +56,11 @@ operating system:
   :emphasize-lines: 2-6
 
   # inside the container, run these command(s)
-  apt-get -y update && apt-get -y upgrade && apt-get autoremove
-  apt-get -y install python-pip python-setuptools python-dev \
+  % apt-get -y update && apt-get -y upgrade && apt-get autoremove
+  % apt-get -y install python-pip python-setuptools python-dev \
     python-lxml python-tk python-matplotlib python-numpy \
     python-scipy python-skimage gcc g++ curl
-  curl https://bootstrap.pypa.io/get-pip.py | python
+  % curl https://bootstrap.pypa.io/get-pip.py | python
 
 These commands might take some time to run.
 
@@ -71,7 +71,7 @@ to update the system:
   :emphasize-lines: 2
 
   # inside the container, run this command
-  source /usr/lib/bisque/bin/activate
+  % source /usr/lib/bisque/bin/activate
   (bisque) root@d5eb3d8e117f:/source/modules/PlanteomeDeepSegment#
 
 Now, we can update the system for the specific requirements of the PlanteomeDeepSegment module:
@@ -80,8 +80,8 @@ Now, we can update the system for the specific requirements of the PlanteomeDeep
   :emphasize-lines: 2, 3
 
   # inside the container and the sandbox, run this command
-  cd /source/modules/PlanteomeDeepSegment
-  pip install -r requirements.txt
+  % cd /source/modules/PlanteomeDeepSegment
+  % pip install -r requirements.txt
 
 This, too, may take some time to run. At the present time, any errors should be ignored.
 

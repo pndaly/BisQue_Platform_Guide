@@ -16,7 +16,7 @@ machine. In the remainder of this section, we will use the author's local hostna
 .. code-block:: bash
   :emphasize-lines: 1
 
-  hostname
+  % hostname
   IPC-PNDALY.local
 
 Execute the following steps:

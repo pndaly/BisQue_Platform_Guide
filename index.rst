@@ -11,7 +11,8 @@ Adding a Python Dockerized Module to BisQue
 Goal
 ----
 
-The objective of this guide is to allow scientists to incorporate a Python-based module into *BisQue* and develop a Dockerfile for condor deployment.
+The objective of this guide is to allow scientists to incorporate a Python-based module into *BisQue* and develop a
+Dockerfile for condor deployment.
 
 ----
 
@@ -25,7 +26,9 @@ The objective of this guide is to allow scientists to incorporate a Python-based
     Clone The GitHub Repository <step4.rst>
     Update The Dependencies In The BisQue Docker Image <step5.rst>
     Run The Module <step6.rst>
+    Dockerizing The Module (CyVerse Staff Only) <step7.rst>
     Summary <stepn.rst>
+
 
 ----
 

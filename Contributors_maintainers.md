@@ -53,9 +53,9 @@ and do not necessarily reflect the views of the National Science Foundation (NSF
 
 ## Center for Bio-Image Informatics, University of California at Santa Barbara
 
-Copyright (C) 2007-2018 by the Regents of the University of California
+Copyright (C) 2007-2018 by the Regents of the University of California.
 
-All rights reserved
+All rights reserved.
 
 Redistribution and use in source and binary forms, in whole or in parts, with or without modification, are permitted provided that the following conditions are met:
 

@@ -13,16 +13,16 @@ Add Local Directories To The BisQue Docker Image
 .. code-block:: bash
   :emphasize-lines: 1-3
 
-  mkdir ~/bisque-docker
-  mkdir ~/bisque-docker/container-data
-  mkdir ~/bisque-docker/container-modules
+  % mkdir ~/bisque-docker
+  % mkdir ~/bisque-docker/container-data
+  % mkdir ~/bisque-docker/container-modules
 
 **Attach these directories to the docker container:**
 
 .. code-block:: bash
   :emphasize-lines: 1-4
 
-  docker run -p 9898:8080 \
+  % docker run -p 9898:8080 \
   -v ~/bisque-docker/container-modules:/source/modules \
   -v ~/bisque-docker/container-data:/source/data \
   cbiucsb/bisque05:stable
@@ -32,9 +32,10 @@ Add Local Directories To The BisQue Docker Image
 - when done, stop the container (from a different terminal) with:
 
 .. code-block:: bash
-  :emphasize-lines: 1
+  :emphasize-lines: 1, 2
 
-  stop_containers
+  % stop_containers
+  % remove_containers
 
 |
 

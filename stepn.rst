@@ -8,7 +8,7 @@
 Summary
 -------
 
-**Congratulations, you have installed your first Python-based analysis module in BisQue!**
+**Congratulations, you have installed your first Python-based dockerized analysis module in BisQue!**
 
 In short, what we have done is:
 
@@ -21,11 +21,12 @@ In short, what we have done is:
 7. Loaded some data files;
 8. Tested the module functionality;
 9. Edited the code and re-tested as required. Note that if the Python code is modified, there is no need to re-register the module. New code will require a re-load, however.
+10. Dockerized the module.
+11. Deployed to CyVerse testing stack (https://bisque.cyverse.org:8888/)
+12. Edited the code and re-tested and re-deployed as required.
+13. Deployed to CyVerse production stack (https://bisque.cyverse.org/)
 
-TO DO:
- - Dockerfile
- - Import into BisQue testing stack
- - Import into BisQue production stack
+You can now advertize your module to collaborators and colleagues.
 
 |
 

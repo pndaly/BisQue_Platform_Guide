@@ -5,101 +5,131 @@
 
 .. _step7.rst:
 
-Dockerizing The Module
-----------------------
+Dockerizing The Module (CyVerse Staff Only)
+-------------------------------------------
 
 **Now that we have the module running in a (fairly) standard container, we can proceed to dockerize it.**
 
-To do this, you will need the assistance of CyVerse staff so feel free to reach out to us. The PlanteomeDeepSegment
-*Dockerfile* looks (something like) this:
+A combination of a valid *Dockerfile*, *setup.py* and the *runtime-module.cfg* files are required to build the image
+for BisQue deployment. These files should be up-to-date within the PlanteomeDeepSegment GitHub repository
+(see :ref:`step4.rst`).
 
-.. code-block:: docker
-  :emphasize-lines: 2, 5, 8, 11-13, 16, 19, 22-28, 31-34, 37-39, 42-44
+However, it also requires a BisQue source code tree to complete the build for BisQue ingestion. The best way to do this
+is to use the machine *bisque-web.iplantcollaborative.org* so a valid login and *sudo* privilege is required on that
+machine.
 
-  # use ubuntu base image
-  FROM ubuntu:16.04
+A summary of the steps we are about to take are:
 
-  # maintenance record
-  MAINTAINER Phil Daly "pndaly@cyverse.org"
+ 1. Login to bisque-web.iplantcollaborative.org and setup deployment environment;
+ 2. Build the image under the BisQue source tree;
+ 3. Test the image;
+ 4. Build the BisQue version of the image;
+ 5. Tag image for CyVerse's local Docker hub *gims.iplantcollaborative.org*;
+ 6. Deploy the image;
+ 7. Test via condor.
 
-  # update the distro
-  RUN apt-get -y update && apt-get -y upgrade && apt-get -y autoremove
+Setting Up For The Build Process
+````````````````````````````````
+.. _s1:
 
-  # install software
-  RUN apt-get -y install python-pip python-setuptools python-dev \
-    python-lxml python-tk python-matplotlib python-numpy       \
-    python-scipy python-skimage gcc g++ curl
-
-  # fix certificate issue?
-  RUN curl https://bootstrap.pypa.io/get-pip.py | python
-
-  # install git
-  RUN apt-get -y install git-core
-
-  # install python dependencies
-  RUN pip install --upgrade pip setuptools
-  RUN pip install --ignore-installed scipy==1.0.1
-  RUN pip install torch==0.4.0 torchvision==0.2.1 numpy==1.14.3 \
-    opencv-python==3.4.0.12 scikit-image==0.13.1 lxml==3.7.3  \
-    matplotlib==2.2.2 cython==0.28.2 PyMaxflow==1.2.9         \
-    pillow==4.1.1 requests==2.10.0 libtiff==0.4.0             \
-    tifffile==0.14.0 bqapi==0.5.9
-
-  # configure to clone a private repo
-  RUN mkdir /root/.ssh/
-  ADD id_rsa /root/.ssh/id_rsa
-  RUN touch /root/.ssh/known_hosts
-  RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
-
-  # copy code
-  WORKDIR /module/workdir
-  RUN git clone git@github.com:DimTrigkakis/PlanteomeDeepSegment_0.3.git
-  RUN mv PlanteomeDeepSegment_0.3 PlanteomeDeepSegment
-
-  # run command
-  ENV PYTHONPATH /module/workdir/PlanteomeDeepSegment:/module/workdir
-  ENV PATH /module/workdir/PlanteomeDeepSegment:/module/workdir:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-  CMD [ 'python', 'PlanteomeDeepSegment.py' ]
-
-A simple test is to check that the *Dockerfile* builds an image without error:
+Step 1, above, is handled like so:
 
 .. code-block:: bash
-  :emphasize-lines: 1
+  :emphasize-lines: 2, 5-6, 9, 12-14
 
-  % docker build --no-cache -t ubisque:uplanteome -f Dockerfile .
+  # login to bisque-web.iplantcollaborative.org with *your* username
+  % ssh -i~/.ssh/pndaly -p 1657 pndaly@bisque-web.iplantcollaborative.org
 
-This may take some time to complete. Once the *docker build* is complete, you can carry out a simple access test:
+  # on bisque-web, become user kkvilekval
+  % sudo su kkvilekval
+  Password: ********
+
+  # on bisque-web, use the bq059 source code tree
+  % workon bq059
+
+  # on bisque-web, clone github repository to this machine
+  % cd ~/bq059/modules
+  % git clone https://github.com/DimTrigkakis/PlanteomeDeepSegment_0.3
+  % mv PlanteomeDeepSegment_0.3 PlanteomeDeepSegment
+
+**From here onwards, all commands (in this section) are executed under the kkvilekval account,
+on the bisque-web.iplantcollaborative.org machine, in the bq059 sandbox.**
+
+Building The Docker Image
+`````````````````````````
+.. _s2:
+
+Step 2, above, can be used to build an initial (test) image which should complete without error:
 
 .. code-block:: bash
-  :emphasize-lines: 1-3
+  :emphasize-lines: 2
 
-  % docker run --name uplanteome ubisque:uplanteome ls -l /module/workdir/PlanteomeDeepSegment
-  % stop_containers
-  % remove_containers
+  # on bisque-web, build initial docker image
+  % docker build --no-cache -t bisque_uplanteome -f Dockerfile .
 
-However, the correct version of the dockerized image should be deployed to the *gims* server (see CyVerse staff for assistance).
+This may take some time to complete and result in a fairly large image (several Gb).
 
-For the dockerized version to work with *condor*, the runtime-module.cfg should reflect both options:
+Testing The Docker Image
+````````````````````````
+.. _s3:
 
-.. code-block:: config
-  :emphasize-lines: 1, 2, 4-8, 10-14
+Once the *docker build* is complete, you can carry out a simple access test (step 3 above) which should list the
+contents of the (running) container's /module/workdir/PlanteomeDeepSegment directory:
 
-  runtime.platforms = condor,command
-  runtime.staging_base = /source/modules/PlanteomeDeepSegment/staging/
+.. code-block:: bash
+  :emphasize-lines: 2, 6, 17-19
 
-  [condor]
-  docker.image  =  bisque_uplanteome
-  executable    =  PlanteomeDeepSegment
-  environments  =  Staged,Docker
-  files         =  PlanteomeDeepSegment
+  # on bisque-web, check the test docker image was built
+  % docker images | grep '^bisque_uplant' | sed -n '/bisque/s/ \+/   /gp'
+  bisque_uplanteome   latest   7c31acc242fd   24   seconds   ago   3.26GB
 
-  [command]
-  executable    =  python PlanteomeDeepSegment.py
-  environments  =  Staged
-  files         =  PlanteomeDeepSegment.py, PlanteomeDeepSegmentDGC.py, PlanteomeDeepSegmentLeaf.py, PlanteomeDeepSegmentLearning.py, PlanteomeDeepSegmentModels.py, PlanteomeDeepSegmentLeafMappings.csv, DeepModels
-  script        =  "python PlanteomeDeepSegment.py --mex_url=$mex_url --module_dir=$module_dir --staging_path=$staging_path --image_url=$image_url --bisque_token=$bisque_token"
+  # on bisque-web, run the test docker image locally
+  % docker run -it bisque_uplanteome:latest ls /module/workdir/PlanteomeDeepSegment
+  DeepModels                            PlanteomeDeepSegmentLearning.py
+  Dockerfile                            PlanteomeDeepSegmentModels.py
+  PlanteomeDeepSegment                  README.md
+  PlanteomeDeepSegment.py               images
+  PlanteomeDeepSegment.xml              public
+  PlanteomeDeepSegmentDGC.py            requirements.txt
+  PlanteomeDeepSegmentLeaf.py           runtime-module.cfg
+  PlanteomeDeepSegmentLeafMappings.csv  setup.py
 
-Now the magic happens ... *To-Be-Completed*
+  # on bisque-web, stop and remove the test docker container
+  % _cid=$(docker container ps -a | grep 'bisque_uplant' | cut -d' ' -f1)
+  % docker container stop ${_cid}
+  % docker container rm ${_cid}
+
+Building The BisQue Version Of The Docker Image
+```````````````````````````````````````````````
+.. _s4:
+
+If the above steps are error-free, we can proceed to step 4 and build the BisQue version of the same image:
+
+.. code-block:: bash
+  :emphasize-lines: 2
+
+  # on bisque-web, execute python setup
+  % python setup.py
+
+Once again, this may take some time.
+
+Tagging The Image For CyVerse Ingestion
+```````````````````````````````````````
+.. _s5:
+
+TBD
+
+Deploying The Image
+```````````````````
+.. _s6:
+
+TBD
+
+Testing The Image Via Condor
+````````````````````````````
+.. _s7:
+
+TBD
 
 |
 

@@ -7,7 +7,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
 
-# from misc.cyverse_sphinx_conf import *
+# from misc.cyverse_sphinx_conf import *  # noqa
 
 project = 'Adding a Python Dockerized Module to BisQue'
 copyright = '2018, CyVerse'
