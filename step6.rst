@@ -19,21 +19,33 @@ machine. In the remainder of this section, we will use the author's local hostna
   % hostname
   IPC-PNDALY.local
 
+Connect To The Running Container's Exposed Service
+``````````````````````````````````````````````````
+
 Execute the following steps:
 
-- point your browser to http://IPC-PNDALY.local:9898/
+- Point your browser to http://IPC-PNDALY.local:9898/
 
-- login with `username /password` = `admin / admin`
+- Login with `username /password` = `admin / admin`
 
-- upload an image in the usual way (there are sample images in the PlanteomeDeepSegment/images directory)
+- Upload an image in the usual way (there are sample images in the PlanteomeDeepSegment/images directory)
+
+Register The Module(s)
+``````````````````````
 
 - Under the `Bisque admin` drop-down menu, select `Module Manager` as show in this image: |Bisque_AdminMenu|_
 
 - In the `Module Manager` pop-up window, enter `http://IPC-PNDALY.local:9898/engine_service` in the left-hand entry widget and click on the load button. The module should appear (and it maybe the only one). Drag and drop the module to the right-hand side of the pop-up window to register it. A fully populated `Module Manager` with PlanteomeDeepSegment already registered should look like this: |Bisque_ModuleManager|_
 
-- Now you can, run the module by clicking on Analyze from the main (drop down) menu and selecting `PlanteomeDeepSegment` and folow the on-screen instructions. The input screen, before clicking on 'RUN' should look like: |Bisque_ZinniaInputs|_
+Run The Module
+``````````````
 
-- For example, selecting the Zinna (flower) image, the module returns the following result: |Bisque_ZinniaOutputs|_
+Now you can, run the module by clicking on Analyze from the main (drop down) menu and selecting `PlanteomeDeepSegment` and folow the on-screen instructions. The input screen, before clicking on 'RUN' should look like: |Bisque_ZinniaInputs|_
+
+Check The Result(s)
+```````````````````
+
+For example, selecting the Zinna (flower) image, the module returns the following result: |Bisque_ZinniaOutputs|_
 
 |
 
@@ -65,8 +77,8 @@ Execute the following steps:
     :width: 50
     :height: 20
 .. |Bisque_AdminMenu| image:: ./img/bisque/Bisque-AdminMenu.png
-    :width: 100
-    :height: 200
+    :width: 150
+    :height: 300
 .. |Bisque_ModuleManager| image:: ./img/bisque/Bisque-ModuleManager.png
     :width: 750
     :height: 500

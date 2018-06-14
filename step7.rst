@@ -20,13 +20,19 @@ machine.
 
 A summary of the steps we are about to take are:
 
- 1. Login to bisque-web.iplantcollaborative.org and setup deployment environment;
- 2. Build the image under the BisQue source tree;
- 3. Test the image;
- 4. Build the BisQue version of the image;
- 5. Tag image for CyVerse's local Docker hub *gims.iplantcollaborative.org*;
- 6. Deploy the image;
- 7. Test via condor.
+ 1. :ref:`Setting Up For The Build Process`
+
+ 2. :ref:`Building The Docker Image`
+
+ 3. :ref:`Testing The Docker Image`
+
+ 4. :ref:`Building The BisQue Version Of The Docker Image`
+
+ 5. :ref:`Tagging The Image For CyVerse Ingestion`
+
+ 6. :ref:`Deploying The Image`
+
+ 7. :ref:`Testing The Image Via Condor`
 
 Setting Up For The Build Process
 ````````````````````````````````

@@ -32,8 +32,6 @@ You can now advertize your module to collaborators and colleagues.
 
 More help and additional information
 `````````````````````````````````````
-..
-    Short description and links to any reading materials
 
 Search for an answer:
     `CyVerse Learning Center <http://learning.cyverse.org>`_ or

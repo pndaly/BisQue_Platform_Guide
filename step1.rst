@@ -11,7 +11,8 @@ Some Useful Utilities For Working With Docker
 **Put these utility functions and aliases in your ${HOME}/.bash_profile (or some other suitable place) to make sure
 they are executed at runtime.**
 
-*For docker container(s):*
+For Docker Container(s)
+```````````````````````
 
 .. code-block:: bash
   :emphasize-lines: 1, 2, 4-12, 14-22
@@ -39,7 +40,8 @@ they are executed at runtime.**
     fi
   }
 
-*For docker image(s):*
+For Docker Image(s)
+```````````````````
 
 .. code-block:: bash
   :emphasize-lines: 1, 2, 4, 5, 7-15, 17-25, 27-30
@@ -51,7 +53,7 @@ they are executed at runtime.**
   alias list_all_image_ids='docker image ls -aq -f "dangling=true"'
 
   function remove_images () {
-    _ri=$(docker images ls -aq)
+    _ri=$(docker image ls -aq)
     if [ ! -z "${_ri}" ]; then
       echo "docker rmi --force ${_ri}"
       docker rmi --force ${_ri}
@@ -61,7 +63,7 @@ they are executed at runtime.**
   }
 
   function remove_all_images () {
-    _ri=$(docker images ls -aq -f "dangling=true")
+    _ri=$(docker image ls -aq -f "dangling=true")
     if [ ! -z "${_ri}" ]; then
       echo "docker rmi --force ${_ri}"
       docker rmi --force ${_ri}

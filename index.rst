@@ -16,10 +16,12 @@ Dockerfile for condor deployment.
 
 ----
 
+|
+
 .. toctree::
     :maxdepth: 2
     
-    Tutorial home <self>
+    Overview <self>
     Some Useful Utilities For Working With Docker <step1.rst>
     Get And Run The BisQue Docker Image <step2.rst>
     Add Local Directories To The BisQue Docker Image <step3.rst>
@@ -29,6 +31,7 @@ Dockerfile for condor deployment.
     Dockerizing The Module (CyVerse Staff Only) <step7.rst>
     Summary <stepn.rst>
 
+|
 
 ----
 

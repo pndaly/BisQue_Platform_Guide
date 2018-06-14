@@ -11,6 +11,9 @@ Update The Dependencies In The BisQue Docker Image
 **There are several ways of accomplishing this but we take the simplest route. This requires that, after this step,
 you leave the container running. If the container stops, you will have to re-execute these commands!**
 
+Run The Docker Image With Local Directories Attached
+````````````````````````````````````````````````````
+
 Run the image, with the local directories and the GitHub repository attached:
 
 .. code-block:: bash
@@ -21,17 +24,12 @@ Run the image, with the local directories and the GitHub repository attached:
   -v ~/bisque-docker/container-data:/source/data \
   cbiucsb/bisque05:stable
 
+Get The Name Or ID Of The Running Container
+```````````````````````````````````````````
+
 Now, in a separate window, we want to connect to the running container. To do this you will need to know the ID or
 name of the running container which can be found like so:
 
-.. code-block:: bash
-  :emphasize-lines: 2
-
-  # get the container ID
-  % list_containers | grep bisque05 | cut -d' ' -f1
-  d5eb3d8e117f
-
-or:
 
 .. code-block:: bash
   :emphasize-lines: 2
@@ -40,8 +38,21 @@ or:
   % list_containers | grep bisque05 | rev | cut -d' ' -f1
   trusting_lovelace
 
-In the above example, we see that the ID is `d5eb3d8e117f` and the name is `trusting_lovelace`. Connect to this (in this
-example using the name):
+or:
+
+.. code-block:: bash
+  :emphasize-lines: 2
+
+  # get the container ID
+  % list_containers | grep bisque05 | cut -d' ' -f1
+  d5eb3d8e117f
+
+In the above example, we see that the ID is `d5eb3d8e117f` and the name is `trusting_lovelace`.
+
+Connect To The Running Container
+````````````````````````````````
+
+Connect to this (in this example using the name):
 
 .. code-block:: bash
   :emphasize-lines: 1
@@ -49,8 +60,13 @@ example using the name):
   % docker exec -it trusting_lovelace bash
   root@d5eb3d8e117f:/source#
 
-Once *inside* the container (identified by the new prompt `root@d5eb3d8e117f:/source#`), we need to update the
-operating system:
+Note that the prompt changes (in this case to *root@d5eb3d8e117f:/source#*) indicating that we are connected as *root*
+inside the running container with ID *d5eb3d8e117f* (also known as *trusting_lovelace* in this example)
+
+Update The Running Container
+````````````````````````````
+
+Once *inside* the container, we need to update the operating system:
 
 .. code-block:: bash
   :emphasize-lines: 2-6
@@ -64,7 +80,10 @@ operating system:
 
 These commands might take some time to run.
 
-However, the BisQue code  also runs in its own sandbox so, within the container, we must activate it *before* continuing
+Update The Python Dependencies Within The Running Container
+```````````````````````````````````````````````````````````
+
+However, the BisQue code also runs in its own sandbox so, within the container, we must activate it *before* continuing
 to update the system:
 
 .. code-block:: bash
