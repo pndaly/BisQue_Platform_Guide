@@ -40,7 +40,9 @@ Register The Module(s)
 Run The Module
 ``````````````
 
-Now you can, run the module by clicking on Analyze from the main (drop down) menu and selecting `PlanteomeDeepSegment` and folow the on-screen instructions. The input screen, before clicking on 'RUN' should look like: |Bisque_ZinniaInputs|_
+Now you can, run the module by clicking on Analyze from the main (drop down) menu and selecting `PlanteomeDeepSegment`
+and folow the on-screen instructions. The input screen, before clicking on 'RUN' should look
+like: |Bisque_ZinniaInputs|_
 
 Check The Result(s)
 ```````````````````
