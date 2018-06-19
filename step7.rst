@@ -28,11 +28,13 @@ A summary of the steps we are about to take are:
 
  4. :ref:`Building The BisQue Version Of The Docker Image`
 
- 5. :ref:`Tagging The Image For CyVerse Ingestion`
+ 5. :ref:`Adding Deployment Keys To The GitHub Repository`
 
- 6. :ref:`Deploying The Image`
+ 6. :ref:`Adding The GitHub Repository To The BisQue Build`
 
- 7. :ref:`Testing The Image Via Condor`
+ 7. :ref:`Deploying The Image On The BisQue Testing Stack`
+
+|
 
 Setting Up For The Build Process
 ````````````````````````````````
@@ -55,11 +57,13 @@ Step 1, above, is handled like so:
 
   # on bisque-web, clone github repository to this machine
   % cd ~/bq059/modules
-  % git clone https://github.com/DimTrigkakis/PlanteomeDeepSegment_0.3
+  % git clone https://github.com/DimTrigkakis/PlanteomeDeepSegment_0.3.git
   % mv PlanteomeDeepSegment_0.3 PlanteomeDeepSegment
 
 **From here onwards, all commands (in this section) are executed under the kkvilekval account,
 on the bisque-web.iplantcollaborative.org machine, in the bq059 sandbox.**
+
+|
 
 Building The Docker Image
 `````````````````````````
@@ -74,6 +78,8 @@ Step 2, above, can be used to build an initial (test) image which should complet
   % docker build --no-cache -t bisque_uplanteome -f Dockerfile .
 
 This may take some time to complete and result in a fairly large image (several Gb).
+
+|
 
 Testing The Docker Image
 ````````````````````````
@@ -105,6 +111,8 @@ contents of the (running) container's /module/workdir/PlanteomeDeepSegment direc
   % docker container stop ${_cid}
   % docker container rm ${_cid}
 
+|
+
 Building The BisQue Version Of The Docker Image
 ```````````````````````````````````````````````
 .. _s4:
@@ -119,23 +127,96 @@ If the above steps are error-free, we can proceed to step 4 and build the BisQue
 
 Once again, this may take some time.
 
-Tagging The Image For CyVerse Ingestion
-```````````````````````````````````````
+This build will push the tagged image gims.cyverse.org:5000/bisque_uplanteome to CyVerse's local DockerHub-like
+resource (gims.cyverse.org).
+
+|
+
+Adding Deployment Keys To The GitHub Repository
+```````````````````````````````````````````````
 .. _s5:
 
-TBD
+If the above steps are error free, we have verified that there is a reasonable chance that the module code can be
+deployed under BisQue at CyVerse. However, we need to complete a couple of *one-time only* procedures to ensure a
+successful build.
 
-Deploying The Image
-```````````````````
+a. First, we must generate a set of SSH keys for deployment.
+
+    This allows the BisQue build process to access the repository.
+    So, assuming we are still logged into bisque-web.iplantcollaborative.org (as per step 1 above), we can execute:
+
+.. code-block:: bash
+  :emphasize-lines: 2, 5-6, 9, 12-14
+
+  # on bisque-web, create SSH deployment keys
+  % cd ~/compose-cyverse/cyverse05
+
+  # on bisque-web, (create and) cd to keys sub-directory
+  % if [ ! -d keys ]; then mkdir keys; fi
+  % cd keys
+
+  # on bisque-web, create new key pair
+  % ssh-keygen -t rsa
+
+  # on bisque-web, create config file
+  % echo "Host *" >> config
+  % echo "    StrictHostKeyChecking no" >> config
+  % echo "" >> config
+
+b. Second, we must add the SSH public key (id_rsa.pub) to the GitHub repository to ensure that BisQue can access the code base.
+
+    NB: This is *not* the same as adding secure keys to a user's profile but adds the key to the repositotry itself.
+
+    The best source of information on adding deployment keys to a repository is found at https://developer.github.com/v3/guides/managing-deploy-keys/ in the subsection "Deploy Keys".
+
+*We stress that SSH deployment keys need only be added to private repositories and one-time only.*
+
+|
+
+Adding The GitHub Repository To The BisQue Build
+````````````````````````````````````````````````
 .. _s6:
 
-TBD
+Now that we can access the repository, we need to tell BisQue where it is. This is simply done again as a *one-time*
+process:
 
-Testing The Image Via Condor
-````````````````````````````
+.. code-block:: bash
+  :emphasize-lines: 2-5
+
+  # on bisque-web, add the GitHub repository to the module build config file
+  % cd ~/compose-cyverse/cyverse05/config
+  % _s="git git@github.com:DimTrigkakis/PlanteomeDeepSegment_0.3.git"
+  % _x=$(grep "$_s" MODULES)
+  % if [ -z "$_x" ]; then echo "$_s PlanteomeDeepSegment" >> MODULES; fi
+
+|
+
+Deploying The Image On The BisQue Testing Stack
+```````````````````````````````````````````````
 .. _s7:
 
-TBD
+At this point, we can proceed to create and deploy the image:
+
+.. code-block:: bash
+  :emphasize-lines: 2-4
+
+  # on bisque-web, make
+  % cd ~/compose-cyverse/cyverse05
+  % make
+  % make publish
+
+As before, this may take a while. Once complete, we can tell *rancher* that the new image is available:
+
+.. code-block:: bash
+  :emphasize-lines: 2-7
+
+  # on bisque-web, deploy using rancher-compose
+  % cd ~/compose-cyverse/testing
+  % source prod.source
+  % rancher-compose stop
+  % rancher-compose rm
+  % rancher-compose create
+  % rancher-compose start
 
 |
 
